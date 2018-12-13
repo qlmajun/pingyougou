@@ -1,33 +1,38 @@
 package com.pinyougou.pojo;
 
-public class TbBrand {
-    private Long id;
+import java.io.Serializable;
 
-    private String name;
+public class TbBrand implements Serializable {
 
-    private String firstChar;
+	private static final long serialVersionUID = 1688071031543855087L;
 
-    public Long getId() {
-        return id;
-    }
+	private Long id;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	private String name;
 
-    public String getName() {
-        return name;
-    }
+	private String firstChar;
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public String getFirstChar() {
-        return firstChar;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setFirstChar(String firstChar) {
-        this.firstChar = firstChar == null ? null : firstChar.trim();
-    }
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name == null ? null : name.trim();
+	}
+
+	public String getFirstChar() {
+		return firstChar;
+	}
+
+	public void setFirstChar(String firstChar) {
+		this.firstChar = firstChar == null ? null : firstChar.trim();
+	}
 }
