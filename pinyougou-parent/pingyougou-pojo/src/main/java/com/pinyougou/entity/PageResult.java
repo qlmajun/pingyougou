@@ -20,6 +20,12 @@ public class PageResult<T> implements Serializable {
 	/** 当前页结果集 **/
 	private List<T> rows;
 
+	public PageResult(long total, List<T> rows) {
+		super();
+		this.total = total;
+		this.rows = rows;
+	}
+
 	public long getTotal() {
 		return total;
 	}
