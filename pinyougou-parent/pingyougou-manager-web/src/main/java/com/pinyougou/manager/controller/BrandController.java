@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.dubbo.config.annotation.Reference;
@@ -25,15 +26,18 @@ public class BrandController {
 	@Reference
 	private BrandService brandService;
 
-	@RequestMapping(value = "findAll", method = RequestMethod.GET)
+	@RequestMapping(value = "collections", method = RequestMethod.GET)
 	@ResponseBody
 	public List<TbBrand> findAll() {
 		return brandService.findAll();
 	}
 
-	@RequestMapping(value = "findPage", method = RequestMethod.GET)
+	@RequestMapping(value = "collections/page", method = RequestMethod.GET)
 	@ResponseBody
-	public PageResult<TbBrand> findPage(int pageNum, int pageSize) {
+	public PageResult<TbBrand> findPage(
+			@RequestParam(value = "pageNum", required = false, defaultValue = "1") int pageNum,
+			@RequestParam(value = "pageSize", required = false, defaultValue = "10") int pageSize) {
+
 		return brandService.findPage(pageNum, pageSize);
 	}
 
