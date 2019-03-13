@@ -1,9 +1,12 @@
 package com.pinyougou.pojo;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class TbGoods {
-    private Long id;
+public class TbGoods implements Serializable{
+	private static final long serialVersionUID = 179464890179610858L;
+
+	private Long id;
 
     private String sellerId;
 

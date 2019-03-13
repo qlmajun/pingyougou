@@ -1,7 +1,11 @@
 package com.pinyougou.pojo;
 
-public class TbSpecificationOption {
-    private Long id;
+import java.io.Serializable;
+
+public class TbSpecificationOption implements Serializable{
+	private static final long serialVersionUID = -4457562384872124956L;
+
+	private Long id;
 
     private String optionName;
 

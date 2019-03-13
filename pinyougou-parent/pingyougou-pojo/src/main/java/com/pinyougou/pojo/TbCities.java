@@ -1,7 +1,11 @@
 package com.pinyougou.pojo;
 
-public class TbCities {
-    private Integer id;
+import java.io.Serializable;
+
+public class TbCities implements Serializable{
+	private static final long serialVersionUID = -7990455747809355197L;
+
+	private Integer id;
 
     private String cityid;
 

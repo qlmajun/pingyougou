@@ -1,10 +1,13 @@
 package com.pinyougou.pojo;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class TbOrder {
-    private Long orderId;
+public class TbOrder implements Serializable{
+	private static final long serialVersionUID = -4015413896784561481L;
+
+	private Long orderId;
 
     private BigDecimal payment;
 

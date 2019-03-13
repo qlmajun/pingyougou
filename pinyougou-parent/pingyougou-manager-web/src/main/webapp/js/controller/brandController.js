@@ -60,7 +60,7 @@ app.controller('brandController', function($scope, $controller, brandService) {
 	$scope.searchEntity = {};
 
 	// 条件查询品牌信息
-	$scope.search = function(pageNum, pageSize, searchEntity) {
+	$scope.search = function(pageNum, pageSize) {
 		brandService.search(pageNum, pageSize, $scope.searchEntity).success(
 				function(response) {
 					$scope.list = response.rows;

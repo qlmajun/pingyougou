@@ -1,23 +1,28 @@
 package com.pinyougou.pojo;
 
-public class TbSpecification {
-    private Long id;
+import java.io.Serializable;
 
-    private String specName;
+public class TbSpecification implements Serializable {
 
-    public Long getId() {
-        return id;
-    }
+	private static final long serialVersionUID = -5963544798517861298L;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	private Long id;
 
-    public String getSpecName() {
-        return specName;
-    }
+	private String specName;
 
-    public void setSpecName(String specName) {
-        this.specName = specName == null ? null : specName.trim();
-    }
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getSpecName() {
+		return specName;
+	}
+
+	public void setSpecName(String specName) {
+		this.specName = specName == null ? null : specName.trim();
+	}
 }

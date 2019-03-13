@@ -1,7 +1,11 @@
 package com.pinyougou.pojo;
 
-public class TbAreas {
-    private Integer id;
+import java.io.Serializable;
+
+public class TbAreas implements Serializable{
+	private static final long serialVersionUID = -1142374769382163208L;
+
+	private Integer id;
 
     private String areaid;
 

@@ -1,10 +1,13 @@
 package com.pinyougou.pojo;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class TbSeckillOrder {
-    private Long id;
+public class TbSeckillOrder implements Serializable{
+	private static final long serialVersionUID = 6148599709265249686L;
+
+	private Long id;
 
     private Long seckillId;
 

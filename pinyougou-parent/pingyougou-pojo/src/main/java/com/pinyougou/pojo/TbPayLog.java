@@ -1,9 +1,12 @@
 package com.pinyougou.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class TbPayLog {
-    private String outTradeNo;
+public class TbPayLog implements Serializable{
+	private static final long serialVersionUID = -771506392953284700L;
+
+	private String outTradeNo;
 
     private Date createTime;
 

@@ -1,7 +1,11 @@
 package com.pinyougou.pojo;
 
-public class TbContent {
-    private Long id;
+import java.io.Serializable;
+
+public class TbContent implements Serializable{
+	private static final long serialVersionUID = 5030938068543748718L;
+
+	private Long id;
 
     private Long categoryId;
 
