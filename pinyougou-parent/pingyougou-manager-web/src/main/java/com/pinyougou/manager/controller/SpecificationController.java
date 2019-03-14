@@ -41,6 +41,12 @@ public class SpecificationController {
 		return specificationService.querySpecifications(pageNum, pageSize);
 	}
 
+	/****
+	 * 根据Id查询产品规格信息
+	 * 
+	 * @param id 主键Id
+	 * @return
+	 */
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)
 	@ResponseBody
 	public Specification querySpecification(@PathVariable(value = "id") int id) {

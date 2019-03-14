@@ -32,7 +32,7 @@ app.controller('brandController', function($scope, $controller, brandService) {
 			// 重新加载列表
 			$scope.reloadList();
 		} else {
-			alert(response.message);
+			alert(serviceObject.message);
 		}
 	}
 
