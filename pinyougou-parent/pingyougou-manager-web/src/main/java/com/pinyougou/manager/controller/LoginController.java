@@ -4,10 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /***
  * 用户登入
@@ -15,12 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author warrior
  *
  */
-@Controller
+@RestController
 @RequestMapping("/login/")
 public class LoginController {
 
-	@RequestMapping(value = "name", method = RequestMethod.POST)
-	@ResponseBody
+	@RequestMapping(value = "name", method = RequestMethod.GET)
 	public Map<String, String> loginByName() {
 
 		String name = SecurityContextHolder.getContext().getAuthentication().getName();

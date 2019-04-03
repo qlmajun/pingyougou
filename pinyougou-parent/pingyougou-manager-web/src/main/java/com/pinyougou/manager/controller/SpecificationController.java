@@ -1,12 +1,11 @@
 package com.pinyougou.manager.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.pinyougou.entity.PageResult;
@@ -21,7 +20,7 @@ import com.pinyougou.sellergoods.service.SpecificationService;
  * @author warrior
  *
  */
-@Controller
+@RestController
 @RequestMapping("specification/")
 public class SpecificationController {
 
@@ -36,7 +35,6 @@ public class SpecificationController {
 	 * @return
 	 */
 	@RequestMapping(value = "collections", method = RequestMethod.GET)
-	@ResponseBody
 	public PageResult<TbSpecification> querySpecifications(@RequestParam(value = "pageNum", defaultValue = "1", required = false) int pageNum, @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize) {
 		return specificationService.querySpecifications(pageNum, pageSize);
 	}
@@ -48,7 +46,6 @@ public class SpecificationController {
 	 * @return
 	 */
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)
-	@ResponseBody
 	public Specification querySpecification(@PathVariable(value = "id") int id) {
 		return specificationService.querySpecificationById(id);
 	}
@@ -60,7 +57,6 @@ public class SpecificationController {
 	 * @return
 	 */
 	@RequestMapping(value = "create", method = RequestMethod.POST)
-	@ResponseBody
 	public Result createSpecification(@RequestBody Specification specification) {
 
 		boolean success = specificationService.createSpecification(specification);
@@ -73,7 +69,6 @@ public class SpecificationController {
 	}
 
 	@RequestMapping(value = "update", method = RequestMethod.POST)
-	@ResponseBody
 	public Result updateSpecification(@RequestBody Specification specification) {
 
 		boolean success = specificationService.updateSpecification(specification);
@@ -92,7 +87,6 @@ public class SpecificationController {
 	 * @return
 	 */
 	@RequestMapping(value = "delete", method = RequestMethod.GET)
-	@ResponseBody
 	public Result deleteSpecifications(@RequestParam(value = "ids") long[] ids) {
 
 		boolean success = specificationService.deleteSpecifications(ids);
@@ -113,7 +107,6 @@ public class SpecificationController {
 	 * @return
 	 */
 	@RequestMapping(value = "search", method = RequestMethod.POST)
-	@ResponseBody
 	public PageResult<TbSpecification> querySpecificationsByCondition(@RequestParam(value = "pageNum", defaultValue = "1", required = false) int pageNum, @RequestParam(value = "pageSize", defaultValue = "10", required = false) int pageSize, @RequestBody TbSpecification specification) {
 
 		return specificationService.querySpecificationsByCondition(specification, pageNum, pageSize);

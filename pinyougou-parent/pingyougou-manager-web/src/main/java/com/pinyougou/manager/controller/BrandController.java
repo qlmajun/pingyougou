@@ -2,13 +2,12 @@ package com.pinyougou.manager.controller;
 
 import java.util.List;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.pinyougou.entity.PageResult;
@@ -22,7 +21,7 @@ import com.pinyougou.sellergoods.service.BrandService;
  * @author warrior
  *
  */
-@Controller
+@RestController
 @RequestMapping("/brand/")
 public class BrandController {
 
@@ -35,7 +34,6 @@ public class BrandController {
 	 * @return
 	 */
 	@RequestMapping(value = "collections", method = RequestMethod.GET)
-	@ResponseBody
 	public List<TbBrand> findAll() {
 		return brandService.findAll();
 	}
@@ -48,10 +46,7 @@ public class BrandController {
 	 * @return
 	 */
 	@RequestMapping(value = "collections/page", method = RequestMethod.GET)
-	@ResponseBody
-	public PageResult<TbBrand> findPage(
-			@RequestParam(value = "pageNum", required = false, defaultValue = "1") int pageNum,
-			@RequestParam(value = "pageSize", required = false, defaultValue = "10") int pageSize) {
+	public PageResult<TbBrand> findPage(@RequestParam(value = "pageNum", required = false, defaultValue = "1") int pageNum, @RequestParam(value = "pageSize", required = false, defaultValue = "10") int pageSize) {
 		return brandService.findPage(pageNum, pageSize);
 	}
 
@@ -62,7 +57,6 @@ public class BrandController {
 	 * @return
 	 */
 	@RequestMapping(value = "create", method = RequestMethod.POST)
-	@ResponseBody
 	public Result createBrand(@RequestBody TbBrand brand) {
 
 		boolean success = brandService.createBrand(brand);
@@ -81,7 +75,6 @@ public class BrandController {
 	 * @return
 	 */
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)
-	@ResponseBody
 	public TbBrand queryBrand(@PathVariable(value = "id") long id) {
 		TbBrand brand = brandService.queryBrandById(id);
 		return brand;
@@ -94,7 +87,6 @@ public class BrandController {
 	 * @return
 	 */
 	@RequestMapping(value = "update", method = RequestMethod.POST)
-	@ResponseBody
 	public Result updateBrand(@RequestBody TbBrand brand) {
 
 		boolean success = brandService.updateBrand(brand);
@@ -113,7 +105,6 @@ public class BrandController {
 	 * @return
 	 */
 	@RequestMapping(value = "delete", method = RequestMethod.GET)
-	@ResponseBody
 	public Result deleteBrands(@RequestParam(value = "ids") long[] ids) {
 
 		boolean success = brandService.deleteBrands(ids);
@@ -134,10 +125,7 @@ public class BrandController {
 	 * @return
 	 */
 	@RequestMapping(value = "search", method = RequestMethod.POST)
-	@ResponseBody
-	public PageResult<TbBrand> queryBrandByCondition(@RequestBody TbBrand brand,
-			@RequestParam(value = "pageNum", required = false, defaultValue = "1") int pageNum,
-			@RequestParam(value = "pageSize", required = false, defaultValue = "10") int pageSize) {
+	public PageResult<TbBrand> queryBrandByCondition(@RequestBody TbBrand brand, @RequestParam(value = "pageNum", required = false, defaultValue = "1") int pageNum, @RequestParam(value = "pageSize", required = false, defaultValue = "10") int pageSize) {
 
 		return brandService.queryBrandByCondition(brand, pageNum, pageSize);
 	}
